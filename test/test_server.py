@@ -527,7 +527,9 @@ class TestProxy(tservers.HTTPProxTest):
         connection.send(
             "GET http://localhost:%d/p/304:b@1k HTTP/1.1\r\n" %
             self.server.port)
+        a = time.time()
         time.sleep(1)
+        b = time.time()
         connection.send("\r\n")
         connection.recv(50000)
         connection.close()
@@ -537,6 +539,7 @@ class TestProxy(tservers.HTTPProxTest):
         assert response.status_code == 304  # sanity test for our low level request
         # time.sleep might be a little bit shorter than a second,
         # we observed up to 0.93s on appveyor.
+        print(a, b, request.timestamp_start, request.timestamp_end)
         assert 0.8 < (request.timestamp_end - request.timestamp_start) < 1.2
 
     def test_request_timestamps_not_affected_by_client_time(self):
