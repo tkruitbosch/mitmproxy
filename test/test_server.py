@@ -542,6 +542,44 @@ class TestProxy(tservers.HTTPProxTest):
         print(a, b, request.timestamp_start, request.timestamp_end)
         assert 0.8 < (request.timestamp_end - request.timestamp_start) < 1.2
 
+    def trigger_race_condition_1(self):
+        self.test_request_timestamps()
+
+    def trigger_race_condition_2(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_3(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_4(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_5(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_6(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_7(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_8(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_9(self):
+        self.test_request_timestamps()
+
+
+    def trigger_race_condition_10(self):
+        self.test_request_timestamps()
+
     def test_request_timestamps_not_affected_by_client_time(self):
         # test that don't include user wait time in request's timestamps
 
