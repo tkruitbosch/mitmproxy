@@ -124,7 +124,7 @@ class Options(object):
 class WebMaster(flow.FlowMaster):
     def __init__(self, server, options):
         self.options = options
-        super(WebMaster, self).__init__(self, server, WebState())
+        super(WebMaster, self).__init__(server, WebState())
         self.app = app.Application(self, self.options.wdebug)
         if options.rfile:
             try:
