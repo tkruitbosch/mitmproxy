@@ -135,7 +135,7 @@ class WebMaster(flow.FlowMaster):
                     "error"
                 )
         self.add_event("############ PRINTING THE OPTIONS", "info")
-        self.add_event("%s" % self.options, "info")
+        self.add_event(("%s" % (self.options)), "info")
         if self.options.app:
             self.start_app(self.options.app_host, self.options.app_port)
 
