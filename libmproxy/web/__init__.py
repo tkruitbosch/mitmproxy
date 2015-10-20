@@ -134,8 +134,8 @@ class WebMaster(flow.FlowMaster):
                     "Could not read flow file: %s" % v,
                     "error"
                 )
-        print "################# TEST WEB FLOW"
-        print self.options
+        self.add_event("############ PRINTING THE OPTIONS", "info")
+        self.add_event("%s" % self.options, "info")
         if self.options.app:
             self.start_app(self.options.app_host, self.options.app_port)
 
